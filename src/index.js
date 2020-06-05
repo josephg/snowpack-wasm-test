@@ -3,9 +3,11 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
-import confetti from 'canvas-confetti';
+import mod from 'submod'
 
-confetti.create(document.getElementById('canvas'), {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+// const mod = require('./main')
+
+mod().then(m => {
+  console.log('loaded', m)
+  document.write('wasm module says 1 + 2 = ' + m._add(1, 2))
+})
